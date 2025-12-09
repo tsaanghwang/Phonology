@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部署指南 - 音元系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .content {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .deploy-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .deploy-section h2 {
+            color: #495057;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .steps {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        
+        .steps li {
+            counter-increment: step-counter;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+        
+        .steps li:before {
+            content: counter(step-counter);
+            background: #667eea;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .code-block {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+        
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .platform-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .platform-card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #dee2e6;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🚀 静态网站部署指南</h1>
+            <p>音元系统 - 快速部署到主流平台</p>
+        </header>
+        
+        <main class="content">
+            <div class="deploy-section">
+                <h2>📋 项目概述</h2>
+                <p>这是一个基于 MkDocs Material 构建的完整静态网站，包含音韵学研究的全部内容。</p>
+            </div>
+            
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <h3>🐙 GitHub Pages</h3>
+                    <p>免费、简单、适合开源项目</p>
+                    <ol class="steps">
+                        <li>将整个 static-website 文件夹上传到 GitHub 仓库</li>
+                        <li>进入仓库 Settings → Pages</li>
+                <li>选择部署分支（main 或 gh-pages）</li>
+                <li>访问：https://用户名.github.io/仓库名</li>
+                    </ol>
+                </div>
+                
+                <div class="platform-card">
+                    <h3>▲ Vercel</h3>
+                    <p>快速、自动、适合现代前端项目</p>
+                    <ol class="steps">
+                        <li>将项目上传到 GitHub</li>
+                        <li>访问 <a href="https://vercel.com">vercel.com</a></li>
+                        <li>导入 GitHub 仓库</li>
+                        <li>自动部署完成</li>
+                    </ol>
+                </div>
+                
+                <div class="platform-card">
+                    <h3>🌐 Netlify</h3>
+                    <p>功能强大、支持多种框架</p>
+                    <ol class="steps">
+                        <li>将项目上传到 GitHub</li>
+                        <li>访问 <a href="https://netlify.com">netlify.com</a></li>
+                        <li>拖拽文件夹或连接仓库</li>
+                        <li>获得专属域名</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <div class="deploy-section">
+                <h2>🔧 本地预览</h2>
+                <p>在部署前，可以在本地预览网站：</p>
+                <div class="code-block">
+# 使用 Python 内置服务器<br>
+cd static-website<br>
+python -m http.server 8000<br>
+<br>
+# 或使用 Node.js 的 http-server<br>
+npx http-server -p 8000
+                </div>
+            </div>
+            
+            <div class="deploy-section">
+                <h2>📁 文件结构</h2>
+                <div class="code-block">
+static-website/<br>
+├── index.html          # 主页面<br>
+├── deploy-guide.html   # 部署指南<br>
+└── README.md           # 说明文档
+                </div>
+            </div>
+            
+            <div class="deploy-section">
+                <h2>✅ 部署检查清单</h2>
+                <ul class="steps">
+                    <li>✅ 所有 HTML 文件完整</li>
+                    <li>✅ CSS 样式正常加载</li>
+                    <li>✅ 图片资源路径正确</li>
+                    <li>✅ 所有链接正常工作</li>
+                    <li>✅ 移动端响应式正常</li>
+                </ul>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>© 2024 音元系统 - Yime Wiki</p>
+            <p>技术支持：查看各平台官方文档</p>
+        </footer>
+    </div>
+</body>
+</html>
